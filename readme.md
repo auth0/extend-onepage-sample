@@ -43,8 +43,8 @@ This is called by the back-end in app.js:
 		// call extension
 		let options = {
 			method:'POST',
-			url:auth0ExtendURL +'saveLead',
-			headers:{'Authorization':`Bearer ${auth0Token}`},
+			url:rxtendURL +'saveLead',
+			headers:{'Authorization':`Bearer ${extendToken}`},
 			json:req.body
 		};
 

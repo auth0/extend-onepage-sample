@@ -1,21 +1,21 @@
 "One Pager" Demo
 ===
 
-This is a simple, "one page" Auth0 Extend demo. By that I don't mean it is actually one page of code, but one page of UI:
+This is a simple, "one page" [Extend](https://goextend.io) demo. By that I don't mean it is actually one page of code, but one page of UI:
 
 ![Screen shot](./img/ss.png)
 
-The top portion represents the 'traditional' business process that you would want to extend while the bottom portion is your Auth0 Extend editor to allow for customization. Typically you would never have these on one page together, but it makes for a simple demo and here we are.
+The top portion represents the 'traditional' business process that you would want to extend while the bottom portion is your Extend editor to allow for customization. Typically you would never have these on one page together, but it makes for a simple demo and here we are.
 
 Setup
 ===
 
 To use this demo, you need to create a `.env` file that looks like so:
 
-	AUTH0_CONTAINER={{your container}}
-	AUTH0_TOKEN={{your token}}
+	EXTEND_CONTAINER={{your container}}
+	EXTEND_TOKEN={{your token}}
 
-You can get these values by going to [auth0.com/extend/try](https://auth0.com/extend/try), logging in, and grabbing these values:
+You can get these values by going to [goextend.io/try](https://goextend.io/try), logging in, and grabbing these values:
 
 ![Keys](./img/keys.png)
 

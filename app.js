@@ -8,9 +8,9 @@ const request = require('request');
 
 const app = express();
 
-const auth0Container = process.env.AUTH0_CONTAINER;
-const auth0ExtendURL = `https://${auth0Container}.run.webtask.io/`;
-const auth0Token = process.env.AUTH0_TOKEN;
+const extendContainer = process.env.EXTEND_CONTAINER;
+const extendURL = `https://${extendContainer}.run.webtask.io/`;
+const extendToken = process.env.EXTEND_TOKEN;
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -19,7 +19,7 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-	res.render('index', { token:auth0Token, container:auth0Container });
+	res.render('index', { token:extendToken, container:extendContainer });
 });
 
 app.post('/saveCustomer', (req, res) => {
@@ -28,8 +28,8 @@ app.post('/saveCustomer', (req, res) => {
 	// call extension
 	let options = {
 		method:'POST',
-		url:auth0ExtendURL +'saveLead',
-		headers:{'Authorization':`Bearer ${auth0Token}`},
+		url:extendURL +'saveLead',
+		headers:{'Authorization':`Bearer ${extendToken}`},
 		json:req.body
 	};
 

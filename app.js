@@ -9,7 +9,19 @@ const request = require('request');
 const app = express();
 
 const extendContainer = process.env.EXTEND_CONTAINER;
-const extendURL = `https://${extendContainer}.run.webtask.io/`;
+
+let extendHost = 'https://sandbox.auth0-extend.com';
+let extendURL = `https://${extendContainer}.sandbox.auth0-extend.com/`;
+
+/*
+If you define process.env.EXTEND_HOST, you are a starter account, 
+otherwise you are freemium, which is still cool!
+*/
+if(process.env.EXTEND_HOST) {
+	extendHost = process.env.EXTEND_HOST;
+	extendURL = `https://${extendContainer}.starter.auth0-extend.com/`;
+} 
+
 const extendToken = process.env.EXTEND_TOKEN;
 
 app.use(express.static('public'));
@@ -19,7 +31,7 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-	res.render('index', { token:extendToken, container:extendContainer });
+	res.render('index', { token:extendToken, container:extendContainer, host:extendHost });
 });
 
 app.post('/saveCustomer', (req, res) => {

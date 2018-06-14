@@ -19,6 +19,12 @@ You can get these values by going to [goextend.io/try](https://goextend.io/try),
 
 ![Keys](./img/keys.png)
 
+If you are using the Extend Starter plan, your `.env` file will include one additional value:
+
+	EXTEND_HOST={{your host}}
+
+The Starter plan also refers to a "container prefix", just include that value as your `EXTEND_CONTAINER`.	
+
 Once you've saved the file, run `npm i` to install dependencies and then `npm start` to fire up the server.
 
 By default the extension will have boilerplate code that won't actually work with the demo (you *can* customize the defaults the editor use and I may do so in a later update), but here is a quick sample of an extension that will do something interesting:

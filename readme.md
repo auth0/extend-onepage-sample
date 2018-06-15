@@ -19,11 +19,22 @@ You can get these values by going to [goextend.io/try](https://goextend.io/try),
 
 ![Keys](./img/keys.png)
 
+#### Starter Plan Users
+
 If you are using the Extend Starter plan, your `.env` file will include one additional value:
 
 	EXTEND_HOST={{your host}}
 
-The Starter plan also refers to a "container prefix", just include that value as your `EXTEND_CONTAINER`.	
+The Starter plan also refers to a "container prefix". You should copy that value to the `EXTEND_CONTAINER` setting and then append a value to set a unique container, for example, "dev". As a Starter plan user, you have access to a limited amount of containers. What value you specify here should be re-used for further testing later. 
+
+Finally, the token provided to you is not appropriate for the container you will be using. You can use the [wt cli](https://goextend.io/docs/wt-cli) or Curl to create an appropriate key:
+
+	curl -X POST https://starter.auth0-extend.com/api/tokens/issue -H "Authorization: Bearer MYTOKENHERE" -H "Content-Type: application/json" --data '{"ten":"CONTAINER"}'
+
+In the sample command above, `MYTOKENHERE` is your token. `CONTAINER` is the container prefix and whatever value you added to the end, like `dev`. Take the result of this call and use that in the `EXTEND_TOKEN` setting.
+
+Running
+===
 
 Once you've saved the file, run `npm i` to install dependencies and then `npm start` to fire up the server.
 

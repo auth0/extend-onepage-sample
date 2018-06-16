@@ -8,6 +8,8 @@ const request = require('request');
 
 const app = express();
 
+
+
 const extendContainer = process.env.EXTEND_CONTAINER;
 
 let extendHost = 'https://sandbox.auth0-extend.com';
@@ -19,7 +21,7 @@ otherwise you are freemium, which is still cool!
 */
 if(process.env.EXTEND_HOST) {
 	extendHost = process.env.EXTEND_HOST;
-	extendURL = `https://${extendContainer}.starter.auth0-extend.com/`;
+	extendURL = extendHost.replace('https://', `https://${extendContainer}.`)+'/';
 } 
 
 const extendToken = process.env.EXTEND_TOKEN;

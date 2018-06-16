@@ -25,13 +25,13 @@ If you are using the Extend Starter plan, your `.env` file will include one addi
 
 	EXTEND_HOST={{your host}}
 
-The Starter plan try page also refers to a "container prefix" which each container name must start with. As a Starter plan user, you have access to a limited amount of containers. In addition to the 5 containers for production, you also have one dedicated dev container which you can use for running this sample. Copy the the dev container value (container prefix + "dev" to the `EXTEND_CONTAINER` setting.  What value you specify here should be re-used for further testing later. 
+The Starter plan try page also refers to a "container prefix" which each container name must start with. As a Starter plan user, you have access to a limited amount of containers. In addition to the 5 containers for production, you also have one dedicated dev container which you can use for running this sample. Copy the the dev container value from the try page to the `EXTEND_CONTAINER` setting.  
 
 Finally, the token provided to you is not appropriate for the container you will be using. You can use the [wt cli](https://goextend.io/docs/wt-cli) or Curl to create an appropriate key:
 
 	curl -X POST https://starter.auth0-extend.com/api/tokens/issue -H "Authorization: Bearer MYTOKENHERE" -H "Content-Type: application/json" --data '{"ten":"CONTAINER"}'
 
-In the sample command above, `MYTOKENHERE` is your token. `CONTAINER` is the container prefix and whatever value you added to the end, like `dev`. Take the result of this call and use that in the `EXTEND_TOKEN` setting.
+In the sample command above, `MYTOKENHERE` is your token. `CONTAINER` is the dev container you used previously. Take the result of this call and use that in the `EXTEND_TOKEN` setting.
 
 Running
 ===

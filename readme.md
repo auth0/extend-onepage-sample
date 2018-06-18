@@ -27,7 +27,7 @@ If you are using the Extend Starter plan, your `.env` file will include one addi
 
 The Starter plan try page also refers to a "container prefix" which each container name must start with. As a Starter plan user, you have access to a limited amount of containers. In addition to the 5 containers for production, you also have one dedicated dev container which you can use for running this sample. Copy the the dev container value from the try page to the `EXTEND_CONTAINER` setting.  
 
-Finally, the token provided to you is not appropriate for the container you will be using. You can use the [wt cli](https://goextend.io/docs/wt-cli) or Curl to create an appropriate key:
+Finally, the token provided to you is the master token for management of your Extend subscription and not for direct use by the application. To continue, you'll need to first create a tenant token for you dev container. You can use Curl to create an appropriate key:
 
 	curl -X POST https://starter.auth0-extend.com/api/tokens/issue -H "Authorization: Bearer MYTOKENHERE" -H "Content-Type: application/json" --data '{"ten":"CONTAINER"}'
 
